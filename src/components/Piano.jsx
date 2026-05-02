@@ -3,34 +3,34 @@ import { Volume2, Music, Waves, Sparkles } from 'lucide-react';
 
 // Frequencies and PC Keyboard mappings for 15 White Keys + Matching Black Keys
 const WHITE_KEYS = [
-  { note: 'C4', freq: 261.63, label: 'A' },
-  { note: 'D4', freq: 293.66, label: 'S' },
-  { note: 'E4', freq: 329.63, label: 'D' },
-  { note: 'F4', freq: 349.23, label: 'F' },
-  { note: 'G4', freq: 392.00, label: 'G' },
-  { note: 'A4', freq: 440.00, label: 'H' },
-  { note: 'B4', freq: 493.88, label: 'J' },
-  { note: 'C5', freq: 523.25, label: 'K' },
-  { note: 'D5', freq: 587.33, label: 'L' },
-  { note: 'E5', freq: 659.25, label: ';' },
-  { note: 'F5', freq: 698.46, label: 'Z' },
-  { note: 'G5', freq: 783.99, label: 'X' },
-  { note: 'A5', freq: 880.00, label: 'C' },
-  { note: 'B5', freq: 987.77, label: 'V' },
-  { note: 'C6', freq: 1046.50, label: 'B' }
+  { note: 'C3', freq: 130.81, label: 'A' },
+  { note: 'D3', freq: 146.83, label: 'S' },
+  { note: 'E3', freq: 164.81, label: 'D' },
+  { note: 'F3', freq: 174.61, label: 'F' },
+  { note: 'G3', freq: 196.00, label: 'G' },
+  { note: 'A3', freq: 220.00, label: 'H' },
+  { note: 'B3', freq: 246.94, label: 'J' },
+  { note: 'C4', freq: 261.63, label: 'K' },
+  { note: 'D4', freq: 293.66, label: 'L' },
+  { note: 'E4', freq: 329.63, label: ';' },
+  { note: 'F4', freq: 349.23, label: 'Z' },
+  { note: 'G4', freq: 392.00, label: 'X' },
+  { note: 'A4', freq: 440.00, label: 'C' },
+  { note: 'B4', freq: 493.88, label: 'V' },
+  { note: 'C5', freq: 523.25, label: 'B' }
 ];
 
 const BLACK_KEYS = [
-  { note: 'C#4', freq: 277.18, label: 'W', leftOffset: 6.67 },
-  { note: 'D#4', freq: 311.13, label: 'E', leftOffset: 13.33 },
-  { note: 'F#4', freq: 369.99, label: 'T', leftOffset: 26.67 },
-  { note: 'G#4', freq: 415.30, label: 'Y', leftOffset: 33.33 },
-  { note: 'A#4', freq: 466.16, label: 'U', leftOffset: 40.00 },
-  { note: 'C#5', freq: 554.37, label: 'O', leftOffset: 53.33 },
-  { note: 'D#5', freq: 622.25, label: 'P', leftOffset: 60.00 },
-  { note: 'F#5', freq: 739.99, label: '[', leftOffset: 73.33 },
-  { note: 'G#5', freq: 830.61, label: ']', leftOffset: 80.00 },
-  { note: 'A#5', freq: 932.33, label: '\\', leftOffset: 86.67 }
+  { note: 'C#3', freq: 138.59, label: 'W', leftOffset: 6.67 },
+  { note: 'D#3', freq: 155.56, label: 'E', leftOffset: 13.33 },
+  { note: 'F#3', freq: 185.00, label: 'T', leftOffset: 26.67 },
+  { note: 'G#3', freq: 207.65, label: 'Y', leftOffset: 33.33 },
+  { note: 'A#3', freq: 233.08, label: 'U', leftOffset: 40.00 },
+  { note: 'C#4', freq: 277.18, label: 'O', leftOffset: 53.33 },
+  { note: 'D#4', freq: 311.13, label: 'P', leftOffset: 60.00 },
+  { note: 'F#4', freq: 369.99, label: '[', leftOffset: 73.33 },
+  { note: 'G#4', freq: 415.30, label: ']', leftOffset: 80.00 },
+  { note: 'A#4', freq: 466.16, label: '\\', leftOffset: 86.67 }
 ];
 
 // Combine all keys for keyboard shortcuts mapping

@@ -7,13 +7,13 @@ const SONGS = [
     title: "Twinkle Twinkle",
     difficulty: "Beginner",
     notes: [
-      { note: 'C4', time: 1.0 }, { note: 'C4', time: 1.5 },
-      { note: 'G4', time: 2.0 }, { note: 'G4', time: 2.5 },
-      { note: 'A4', time: 3.0 }, { note: 'A4', time: 3.5 },
-      { note: 'G4', time: 4.0 }, { note: 'F4', time: 5.0 },
-      { note: 'F4', time: 5.5 }, { note: 'E4', time: 6.0 },
-      { note: 'E4', time: 6.5 }, { note: 'D4', time: 7.0 },
-      { note: 'D4', time: 7.5 }, { note: 'C4', time: 8.0 }
+      { note: 'C3', time: 1.0 }, { note: 'C3', time: 1.5 },
+      { note: 'G3', time: 2.0 }, { note: 'G3', time: 2.5 },
+      { note: 'A3', time: 3.0 }, { note: 'A3', time: 3.5 },
+      { note: 'G3', time: 4.0 }, { note: 'F3', time: 5.0 },
+      { note: 'F3', time: 5.5 }, { note: 'E3', time: 6.0 },
+      { note: 'E3', time: 6.5 }, { note: 'D3', time: 7.0 },
+      { note: 'D3', time: 7.5 }, { note: 'C3', time: 8.0 }
     ]
   },
   {
@@ -21,14 +21,14 @@ const SONGS = [
     title: "Ode to Joy",
     difficulty: "Medium",
     notes: [
-      { note: 'E4', time: 1.0 }, { note: 'E4', time: 1.5 },
-      { note: 'F4', time: 2.0 }, { note: 'G4', time: 2.5 },
-      { note: 'G4', time: 3.0 }, { note: 'F4', time: 3.5 },
-      { note: 'E4', time: 4.0 }, { note: 'D4', time: 4.5 },
-      { note: 'C4', time: 5.0 }, { note: 'C4', time: 5.5 },
-      { note: 'D4', time: 6.0 }, { note: 'E4', time: 6.5 },
-      { note: 'E4', time: 7.0 }, { note: 'D4', time: 7.5 },
-      { note: 'D4', time: 8.0 }
+      { note: 'E3', time: 1.0 }, { note: 'E3', time: 1.5 },
+      { note: 'F3', time: 2.0 }, { note: 'G3', time: 2.5 },
+      { note: 'G3', time: 3.0 }, { note: 'F3', time: 3.5 },
+      { note: 'E3', time: 4.0 }, { note: 'D3', time: 4.5 },
+      { note: 'C3', time: 5.0 }, { note: 'C3', time: 5.5 },
+      { note: 'D3', time: 6.0 }, { note: 'E3', time: 6.5 },
+      { note: 'E3', time: 7.0 }, { note: 'D3', time: 7.5 },
+      { note: 'D3', time: 8.0 }
     ]
   },
   {
@@ -36,15 +36,15 @@ const SONGS = [
     title: "Jingle Bells",
     difficulty: "Fun",
     notes: [
-      { note: 'E4', time: 1.0 }, { note: 'E4', time: 1.5 }, { note: 'E4', time: 2.0 },
-      { note: 'E4', time: 2.8 }, { note: 'E4', time: 3.3 }, { note: 'E4', time: 3.8 },
-      { note: 'E4', time: 4.6 }, { note: 'G4', time: 5.1 }, { note: 'C4', time: 5.6 },
-      { note: 'D4', time: 6.1 }, { note: 'E4', time: 6.6 }
+      { note: 'E3', time: 1.0 }, { note: 'E3', time: 1.5 }, { note: 'E3', time: 2.0 },
+      { note: 'E3', time: 2.8 }, { note: 'E3', time: 3.3 }, { note: 'E3', time: 3.8 },
+      { note: 'E3', time: 4.6 }, { note: 'G3', time: 5.1 }, { note: 'C3', time: 5.6 },
+      { note: 'D3', time: 6.1 }, { note: 'E3', time: 6.6 }
     ]
   }
 ];
 
-const WHITE_KEYS_NOTES = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5', 'C6'];
+const WHITE_KEYS_NOTES = ['C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3', 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
 
 export default function MaestroMode({ pianoNotePlayed }) {
   const [selectedSong, setSelectedSong] = useState(SONGS[0]);
