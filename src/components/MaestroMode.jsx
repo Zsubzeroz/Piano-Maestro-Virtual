@@ -4,8 +4,41 @@ import { Play, Square, Award, Music, BookOpen } from 'lucide-react';
 const SONGS = [
   {
     id: 1,
+    title: "Leila Fletcher: The Bell Rings",
+    difficulty: "Basic Hand Position",
+    notes: [
+      { note: 'C4', time: 1.0 }, { note: 'D4', time: 1.5 },
+      { note: 'E4', time: 2.0 }, { note: 'D4', time: 2.5 },
+      { note: 'C4', time: 3.0 }
+    ]
+  },
+  {
+    id: 2,
+    title: "Leila Fletcher: Robin Redbreast",
+    difficulty: "Five Finger Scale",
+    notes: [
+      { note: 'C4', time: 1.0 }, { note: 'D4', time: 1.5 },
+      { note: 'E4', time: 2.0 }, { note: 'F4', time: 2.5 },
+      { note: 'G4', time: 3.0 }, { note: 'F4', time: 3.5 },
+      { note: 'E4', time: 4.0 }, { note: 'D4', time: 4.5 },
+      { note: 'C4', time: 5.0 }
+    ]
+  },
+  {
+    id: 3,
+    title: "Leila Fletcher: Merry-Go-Round",
+    difficulty: "Both Hands Intro",
+    notes: [
+      { note: 'C4', time: 1.0 }, { note: 'B3', time: 1.5 },
+      { note: 'A3', time: 2.0 }, { note: 'G3', time: 2.5 },
+      { note: 'A3', time: 3.0 }, { note: 'B3', time: 3.5 },
+      { note: 'C4', time: 4.0 }
+    ]
+  },
+  {
+    id: 4,
     title: "Twinkle Twinkle",
-    difficulty: "Beginner",
+    difficulty: "Intermediate",
     notes: [
       { note: 'C3', time: 1.0 }, { note: 'C3', time: 1.5 },
       { note: 'G3', time: 2.0 }, { note: 'G3', time: 2.5 },
@@ -14,32 +47,6 @@ const SONGS = [
       { note: 'F3', time: 5.5 }, { note: 'E3', time: 6.0 },
       { note: 'E3', time: 6.5 }, { note: 'D3', time: 7.0 },
       { note: 'D3', time: 7.5 }, { note: 'C3', time: 8.0 }
-    ]
-  },
-  {
-    id: 2,
-    title: "Ode to Joy",
-    difficulty: "Medium",
-    notes: [
-      { note: 'E3', time: 1.0 }, { note: 'E3', time: 1.5 },
-      { note: 'F3', time: 2.0 }, { note: 'G3', time: 2.5 },
-      { note: 'G3', time: 3.0 }, { note: 'F3', time: 3.5 },
-      { note: 'E3', time: 4.0 }, { note: 'D3', time: 4.5 },
-      { note: 'C3', time: 5.0 }, { note: 'C3', time: 5.5 },
-      { note: 'D3', time: 6.0 }, { note: 'E3', time: 6.5 },
-      { note: 'E3', time: 7.0 }, { note: 'D3', time: 7.5 },
-      { note: 'D3', time: 8.0 }
-    ]
-  },
-  {
-    id: 3,
-    title: "Jingle Bells",
-    difficulty: "Fun",
-    notes: [
-      { note: 'E3', time: 1.0 }, { note: 'E3', time: 1.5 }, { note: 'E3', time: 2.0 },
-      { note: 'E3', time: 2.8 }, { note: 'E3', time: 3.3 }, { note: 'E3', time: 3.8 },
-      { note: 'E3', time: 4.6 }, { note: 'G3', time: 5.1 }, { note: 'C3', time: 5.6 },
-      { note: 'D3', time: 6.1 }, { note: 'E3', time: 6.6 }
     ]
   }
 ];
