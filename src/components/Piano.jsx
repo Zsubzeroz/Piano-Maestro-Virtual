@@ -80,21 +80,23 @@ export default function Piano({ notePlayCallback }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.repeat) return;
-      const keyData = KEY_MAP[e.key.toLowerCase()];
+      let keyData = KEY_MAP[e.key.toLowerCase()];
+      if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        keyData = KEY_MAP[' '];
+      }
       if (keyData) {
-        if (e.key === ' ') {
-          e.preventDefault();
-        }
         startNote(keyData.note, keyData.freq);
       }
     };
 
     const handleKeyUp = (e) => {
-      const keyData = KEY_MAP[e.key.toLowerCase()];
+      let keyData = KEY_MAP[e.key.toLowerCase()];
+      if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        keyData = KEY_MAP[' '];
+      }
       if (keyData) {
-        if (e.key === ' ') {
-          e.preventDefault();
-        }
         stopNote(keyData.note);
       }
     };
