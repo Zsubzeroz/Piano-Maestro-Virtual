@@ -90,8 +90,8 @@ export default function MaestroMode({ pianoNotePlayed }) {
           return {
             ...noteItem,
             top: topPercentage,
-            expired: fallTime < -0.3,
-            hit: fallTime >= -0.2 && fallTime <= 0.2
+            expired: fallTime < -0.5,
+            hit: fallTime >= -0.5 && fallTime <= 0.5
           };
         }).filter(n => n.top >= -10 && !n.expired);
 

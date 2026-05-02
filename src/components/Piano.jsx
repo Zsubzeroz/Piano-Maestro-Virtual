@@ -3,34 +3,34 @@ import { Volume2, Music, Waves, Sparkles } from 'lucide-react';
 
 // Frequencies and PC Keyboard mappings for 15 White Keys + Matching Black Keys
 const WHITE_KEYS = [
-  { note: 'C3', freq: 130.81, label: 'A' },
-  { note: 'D3', freq: 146.83, label: 'S' },
-  { note: 'E3', freq: 164.81, label: 'D' },
-  { note: 'F3', freq: 174.61, label: 'F' },
-  { note: 'G3', freq: 196.00, label: 'G' },
-  { note: 'A3', freq: 220.00, label: 'H' },
-  { note: 'B3', freq: 246.94, label: 'J' },
-  { note: 'C4', freq: 261.63, label: 'K' },
-  { note: 'D4', freq: 293.66, label: 'L' },
-  { note: 'E4', freq: 329.63, label: ';' },
-  { note: 'F4', freq: 349.23, label: 'Z' },
-  { note: 'G4', freq: 392.00, label: 'X' },
-  { note: 'A4', freq: 440.00, label: 'C' },
-  { note: 'B4', freq: 493.88, label: 'V' },
-  { note: 'C5', freq: 523.25, label: 'B' }
+  { note: 'C3', freq: 130.81, label: 'A', solfege: 'Dó' },
+  { note: 'D3', freq: 146.83, label: 'S', solfege: 'Ré' },
+  { note: 'E3', freq: 164.81, label: 'D', solfege: 'Mi' },
+  { note: 'F3', freq: 174.61, label: 'F', solfege: 'Fá' },
+  { note: 'G3', freq: 196.00, label: 'G', solfege: 'Sol' },
+  { note: 'A3', freq: 220.00, label: 'H', solfege: 'Lá' },
+  { note: 'B3', freq: 246.94, label: 'J', solfege: 'Si' },
+  { note: 'C4', freq: 261.63, label: 'K', solfege: 'Dó' },
+  { note: 'D4', freq: 293.66, label: 'L', solfege: 'Ré' },
+  { note: 'E4', freq: 329.63, label: ';', solfege: 'Mi' },
+  { note: 'F4', freq: 349.23, label: 'Z', solfege: 'Fá' },
+  { note: 'G4', freq: 392.00, label: 'X', solfege: 'Sol' },
+  { note: 'A4', freq: 440.00, label: 'C', solfege: 'Lá' },
+  { note: 'B4', freq: 493.88, label: 'V', solfege: 'Si' },
+  { note: 'C5', freq: 523.25, label: 'B', solfege: 'Dó' }
 ];
 
 const BLACK_KEYS = [
-  { note: 'C#3', freq: 138.59, label: 'W', leftOffset: 6.67 },
-  { note: 'D#3', freq: 155.56, label: 'E', leftOffset: 13.33 },
-  { note: 'F#3', freq: 185.00, label: 'T', leftOffset: 26.67 },
-  { note: 'G#3', freq: 207.65, label: 'Y', leftOffset: 33.33 },
-  { note: 'A#3', freq: 233.08, label: 'U', leftOffset: 40.00 },
-  { note: 'C#4', freq: 277.18, label: 'O', leftOffset: 53.33 },
-  { note: 'D#4', freq: 311.13, label: 'P', leftOffset: 60.00 },
-  { note: 'F#4', freq: 369.99, label: '[', leftOffset: 73.33 },
-  { note: 'G#4', freq: 415.30, label: ']', leftOffset: 80.00 },
-  { note: 'A#4', freq: 466.16, label: '\\', leftOffset: 86.67 }
+  { note: 'C#3', freq: 138.59, label: 'W', leftOffset: 6.67, solfege: 'Dó#' },
+  { note: 'D#3', freq: 155.56, label: 'E', leftOffset: 13.33, solfege: 'Ré#' },
+  { note: 'F#3', freq: 185.00, label: 'T', leftOffset: 26.67, solfege: 'Fá#' },
+  { note: 'G#3', freq: 207.65, label: 'Y', leftOffset: 33.33, solfege: 'Sol#' },
+  { note: 'A#3', freq: 233.08, label: 'U', leftOffset: 40.00, solfege: 'Lá#' },
+  { note: 'C#4', freq: 277.18, label: 'O', leftOffset: 53.33, solfege: 'Dó#' },
+  { note: 'D#4', freq: 311.13, label: 'P', leftOffset: 60.00, solfege: 'Ré#' },
+  { note: 'F#4', freq: 369.99, label: '[', leftOffset: 73.33, solfege: 'Fá#' },
+  { note: 'G#4', freq: 415.30, label: ']', leftOffset: 80.00, solfege: 'Sol#' },
+  { note: 'A#4', freq: 466.16, label: '\\', leftOffset: 86.67, solfege: 'Lá#' }
 ];
 
 // Combine all keys for keyboard shortcuts mapping
@@ -41,9 +41,9 @@ const KEY_MAP = {};
 
 export default function Piano({ notePlayCallback }) {
   const [soundType, setSoundType] = useState('piano');
-  const [volume, setVolume] = useState(0.4);
-  const [attack, setAttack] = useState(0.05);
-  const [release, setRelease] = useState(0.3);
+  const [volume, setVolume] = useState(0.5);
+  const [attack, setAttack] = useState(0.01);
+  const [release, setRelease] = useState(0.6);
   const [activeNotes, setActiveNotes] = useState({});
 
   // Using refs to preserve audio nodes between renders
@@ -113,41 +113,68 @@ export default function Piano({ notePlayCallback }) {
     // Stop existing oscillators for this note
     if (activeOscillators.current[note]) {
       try {
-        activeOscillators.current[note].stop();
+        activeOscillators.current[note].oscillators.forEach(osc => osc.stop());
       } catch (err) {}
     }
 
-    // Create a new oscillator
-    const osc = audioContextRef.current.createOscillator();
-    const noteGain = audioContextRef.current.createGain();
+    const oscillators = [];
 
-    osc.connect(noteGain);
+    // Main envelope
+    const noteGain = audioContextRef.current.createGain();
     noteGain.connect(gainNodeRef.current);
 
-    // Dynamic wave settings based on selected soundType
+    // Advanced dynamic wave settings
     if (soundType === 'piano') {
-      osc.type = 'triangle';
-      noteGain.gain.setValueAtTime(0.01, audioContextRef.current.currentTime);
+      // Create body (triangle wave)
+      const oscBody = audioContextRef.current.createOscillator();
+      oscBody.type = 'triangle';
+      oscBody.frequency.setValueAtTime(freq, audioContextRef.current.currentTime);
+      oscBody.connect(noteGain);
+
+      // Create overtones (richer sound profile like an acoustic piano)
+      const oscOvertone = audioContextRef.current.createOscillator();
+      const overtoneGain = audioContextRef.current.createGain();
+      oscOvertone.type = 'sine';
+      oscOvertone.frequency.setValueAtTime(freq * 2, audioContextRef.current.currentTime);
+      oscOvertone.connect(overtoneGain);
+      overtoneGain.connect(noteGain);
+
+      // Amplitude decay (how string resonance falls off quickly when key strikes)
+      noteGain.gain.setValueAtTime(0.001, audioContextRef.current.currentTime);
       noteGain.gain.linearRampToValueAtTime(1.0, audioContextRef.current.currentTime + attack);
-    } else if (soundType === 'synth') {
-      osc.type = 'square';
-      noteGain.gain.setValueAtTime(0.01, audioContextRef.current.currentTime);
-      noteGain.gain.linearRampToValueAtTime(0.8, audioContextRef.current.currentTime + attack);
-    } else if (soundType === 'organ') {
-      osc.type = 'sawtooth';
-      noteGain.gain.setValueAtTime(0.01, audioContextRef.current.currentTime);
-      noteGain.gain.linearRampToValueAtTime(0.7, audioContextRef.current.currentTime + attack);
-    } else if (soundType === 'bell') {
-      osc.type = 'sine';
-      noteGain.gain.setValueAtTime(0.01, audioContextRef.current.currentTime);
-      noteGain.gain.linearRampToValueAtTime(1.2, audioContextRef.current.currentTime + attack);
+      noteGain.gain.exponentialRampToValueAtTime(0.2, audioContextRef.current.currentTime + attack + 0.35);
+
+      overtoneGain.gain.setValueAtTime(0.2, audioContextRef.current.currentTime);
+      overtoneGain.gain.exponentialRampToValueAtTime(0.01, audioContextRef.current.currentTime + attack + 0.25);
+
+      oscBody.start();
+      oscOvertone.start();
+      oscillators.push(oscBody, oscOvertone);
+    } else {
+      const osc = audioContextRef.current.createOscillator();
+      osc.connect(noteGain);
+      osc.frequency.setValueAtTime(freq, audioContextRef.current.currentTime);
+
+      if (soundType === 'synth') {
+        osc.type = 'square';
+        noteGain.gain.setValueAtTime(0.01, audioContextRef.current.currentTime);
+        noteGain.gain.linearRampToValueAtTime(0.8, audioContextRef.current.currentTime + attack);
+      } else if (soundType === 'organ') {
+        osc.type = 'sawtooth';
+        noteGain.gain.setValueAtTime(0.01, audioContextRef.current.currentTime);
+        noteGain.gain.linearRampToValueAtTime(0.7, audioContextRef.current.currentTime + attack);
+      } else if (soundType === 'bell') {
+        osc.type = 'sine';
+        noteGain.gain.setValueAtTime(0.01, audioContextRef.current.currentTime);
+        noteGain.gain.linearRampToValueAtTime(1.2, audioContextRef.current.currentTime + attack);
+      }
+
+      osc.start();
+      oscillators.push(osc);
     }
 
-    osc.frequency.setValueAtTime(freq, audioContextRef.current.currentTime);
-    osc.start();
-
     // Store references
-    activeOscillators.current[note] = { oscillator: osc, gainNode: noteGain };
+    activeOscillators.current[note] = { oscillators, gainNode: noteGain };
   };
 
   const stopNote = (note) => {
@@ -159,12 +186,12 @@ export default function Piano({ notePlayCallback }) {
 
     const nodeData = activeOscillators.current[note];
     if (nodeData) {
-      const { oscillator, gainNode } = nodeData;
+      const { oscillators, gainNode } = nodeData;
       try {
         const now = audioContextRef.current.currentTime;
         gainNode.gain.setValueAtTime(gainNode.gain.value, now);
         gainNode.gain.exponentialRampToValueAtTime(0.0001, now + release);
-        oscillator.stop(now + release);
+        oscillators.forEach(osc => osc.stop(now + release));
       } catch (err) {}
       delete activeOscillators.current[note];
     }
@@ -241,8 +268,10 @@ export default function Piano({ notePlayCallback }) {
             onMouseLeave={() => stopNote(k.note)}
             onTouchStart={(e) => { e.preventDefault(); startNote(k.note, k.freq); }}
             onTouchEnd={(e) => { e.preventDefault(); stopNote(k.note); }}
+            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', gap: 2 }}
           >
-            {k.label}
+            <span style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{k.solfege}</span>
+            <span style={{ fontSize: '0.75rem', opacity: 0.65 }}>{k.label}</span>
           </div>
         ))}
 
@@ -250,14 +279,22 @@ export default function Piano({ notePlayCallback }) {
           <div
             key={k.note}
             className={`black-key ${activeNotes[k.note] ? 'active' : ''}`}
-            style={{ left: `calc(${k.leftOffset}% + 1px)` }}
+            style={{ 
+              left: `calc(${k.leftOffset}% + 1px)`,
+              display: 'flex', 
+              flexDirection: 'column', 
+              justifyContent: 'flex-end', 
+              alignItems: 'center', 
+              gap: 1
+            }}
             onMouseDown={(e) => { e.stopPropagation(); startNote(k.note, k.freq); }}
             onMouseUp={(e) => { e.stopPropagation(); stopNote(k.note); }}
             onMouseLeave={(e) => { e.stopPropagation(); stopNote(k.note); }}
             onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); startNote(k.note, k.freq); }}
             onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); stopNote(k.note); }}
           >
-            {k.label}
+            <span style={{ fontSize: '0.8rem', fontWeight: 'bold', color: '#fff' }}>{k.solfege}</span>
+            <span style={{ fontSize: '0.65rem', opacity: 0.75, color: '#ddd' }}>{k.label}</span>
           </div>
         ))}
       </div>
