@@ -10,7 +10,7 @@ const WHITE_KEYS = [
   { note: 'G3', freq: 196.00, label: 'G', solfege: 'Sol' },
   { note: 'A3', freq: 220.00, label: 'H', solfege: 'Lá' },
   { note: 'B3', freq: 246.94, label: 'J', solfege: 'Si' },
-  { note: 'C4', freq: 261.63, label: 'K', solfege: 'Dó' },
+  { note: 'C4', freq: 261.63, label: 'Espaço', solfege: 'Dó' },
   { note: 'D4', freq: 293.66, label: 'L', solfege: 'Ré' },
   { note: 'E4', freq: 329.63, label: ';', solfege: 'Mi' },
   { note: 'F4', freq: 349.23, label: 'Z', solfege: 'Fá' },
@@ -36,7 +36,13 @@ const BLACK_KEYS = [
 // Combine all keys for keyboard shortcuts mapping
 const KEY_MAP = {};
 [...WHITE_KEYS, ...BLACK_KEYS].forEach(k => {
-  KEY_MAP[k.label.toLowerCase()] = k;
+  if (k.label.toLowerCase() === 'espaço') {
+    KEY_MAP[' '] = k;
+    KEY_MAP['space'] = k;
+    KEY_MAP['spacebar'] = k;
+  } else {
+    KEY_MAP[k.label.toLowerCase()] = k;
+  }
 });
 
 export default function Piano({ notePlayCallback }) {
@@ -76,6 +82,9 @@ export default function Piano({ notePlayCallback }) {
       if (e.repeat) return;
       const keyData = KEY_MAP[e.key.toLowerCase()];
       if (keyData) {
+        if (e.key === ' ') {
+          e.preventDefault();
+        }
         startNote(keyData.note, keyData.freq);
       }
     };
@@ -83,6 +92,9 @@ export default function Piano({ notePlayCallback }) {
     const handleKeyUp = (e) => {
       const keyData = KEY_MAP[e.key.toLowerCase()];
       if (keyData) {
+        if (e.key === ' ') {
+          e.preventDefault();
+        }
         stopNote(keyData.note);
       }
     };
