@@ -34,3 +34,8 @@ To build and compile the optimized production bundle:
 ```bash
 npm run build
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](file:///home/estifer/Dev/Projetos/Piano-Maestro-Virtual/LICENSE) file for details.
+
