@@ -7,9 +7,9 @@ const SONGS = [
     title: "Leila Fletcher: The Bell Rings",
     difficulty: "Basic Hand Position",
     notes: [
-      { note: 'C4', time: 1.0 }, { note: 'D4', time: 1.5 },
-      { note: 'E4', time: 2.0 }, { note: 'D4', time: 2.5 },
-      { note: 'C4', time: 3.0 }
+      { note: 'C4', time: 1.0, duration: 1.0 }, { note: 'D4', time: 2.5, duration: 1.0 },
+      { note: 'E4', time: 4.0, duration: 1.0 }, { note: 'D4', time: 5.5, duration: 1.0 },
+      { note: 'C4', time: 7.0, duration: 2.0 }
     ]
   },
   {
@@ -17,11 +17,11 @@ const SONGS = [
     title: "Leila Fletcher: Robin Redbreast",
     difficulty: "Five Finger Scale",
     notes: [
-      { note: 'C4', time: 1.0 }, { note: 'D4', time: 1.5 },
-      { note: 'E4', time: 2.0 }, { note: 'F4', time: 2.5 },
-      { note: 'G4', time: 3.0 }, { note: 'F4', time: 3.5 },
-      { note: 'E4', time: 4.0 }, { note: 'D4', time: 4.5 },
-      { note: 'C4', time: 5.0 }
+      { note: 'C4', time: 1.0, duration: 0.8 }, { note: 'D4', time: 2.0, duration: 0.8 },
+      { note: 'E4', time: 3.0, duration: 0.8 }, { note: 'F4', time: 4.0, duration: 0.8 },
+      { note: 'G4', time: 5.0, duration: 1.5 }, { note: 'F4', time: 7.0, duration: 0.8 },
+      { note: 'E4', time: 8.0, duration: 0.8 }, { note: 'D4', time: 9.0, duration: 0.8 },
+      { note: 'C4', time: 10.0, duration: 2.0 }
     ]
   },
   {
@@ -29,10 +29,10 @@ const SONGS = [
     title: "Leila Fletcher: Merry-Go-Round",
     difficulty: "Both Hands Intro",
     notes: [
-      { note: 'C4', time: 1.0 }, { note: 'B3', time: 1.5 },
-      { note: 'A3', time: 2.0 }, { note: 'G3', time: 2.5 },
-      { note: 'A3', time: 3.0 }, { note: 'B3', time: 3.5 },
-      { note: 'C4', time: 4.0 }
+      { note: 'C4', time: 1.0, duration: 1.0 }, { note: 'B3', time: 2.2, duration: 1.0 },
+      { note: 'A3', time: 3.4, duration: 1.0 }, { note: 'G3', time: 4.6, duration: 1.0 },
+      { note: 'A3', time: 5.8, duration: 1.0 }, { note: 'B3', time: 7.0, duration: 1.0 },
+      { note: 'C4', time: 8.2, duration: 2.0 }
     ]
   },
   {
@@ -40,9 +40,9 @@ const SONGS = [
     title: "Leila Fletcher: Song of the Waves",
     difficulty: "Arpeggio & Intervals",
     notes: [
-      { note: 'C4', time: 1.0 }, { note: 'E4', time: 1.5 },
-      { note: 'G4', time: 2.0 }, { note: 'E4', time: 2.5 },
-      { note: 'C4', time: 3.0 }
+      { note: 'C4', time: 1.0, duration: 1.2 }, { note: 'E4', time: 2.5, duration: 1.2 },
+      { note: 'G4', time: 4.0, duration: 1.2 }, { note: 'E4', time: 5.5, duration: 1.2 },
+      { note: 'C4', time: 7.0, duration: 2.5 }
     ]
   },
   {
@@ -50,9 +50,9 @@ const SONGS = [
     title: "Leila Fletcher: Organ Grinder",
     difficulty: "Bass Clef Intro",
     notes: [
-      { note: 'C3', time: 1.0 }, { note: 'E3', time: 1.5 },
-      { note: 'G3', time: 2.0 }, { note: 'E3', time: 2.5 },
-      { note: 'C3', time: 3.0 }
+      { note: 'C3', time: 1.0, duration: 1.2 }, { note: 'E3', time: 2.5, duration: 1.2 },
+      { note: 'G3', time: 4.0, duration: 1.2 }, { note: 'E3', time: 5.5, duration: 1.2 },
+      { note: 'C3', time: 7.0, duration: 2.5 }
     ]
   },
   {
@@ -60,9 +60,9 @@ const SONGS = [
     title: "Leila Fletcher: Song of Long Ago",
     difficulty: "Review Melody",
     notes: [
-      { note: 'C4', time: 1.0 }, { note: 'E4', time: 1.5 },
-      { note: 'G4', time: 2.0 }, { note: 'E4', time: 2.5 },
-      { note: 'C4', time: 3.0 }
+      { note: 'C4', time: 1.0, duration: 1.2 }, { note: 'E4', time: 2.5, duration: 1.2 },
+      { note: 'G4', time: 4.0, duration: 1.2 }, { note: 'E4', time: 5.5, duration: 1.2 },
+      { note: 'C4', time: 7.0, duration: 2.5 }
     ]
   },
   {
@@ -70,9 +70,9 @@ const SONGS = [
     title: "Leila Fletcher: Evening Bells",
     difficulty: "Inverted Intervals",
     notes: [
-      { note: 'G3', time: 1.0 }, { note: 'E3', time: 1.5 },
-      { note: 'C3', time: 2.0 }, { note: 'E3', time: 2.5 },
-      { note: 'G3', time: 3.0 }
+      { note: 'G3', time: 1.0, duration: 1.2 }, { note: 'E3', time: 2.5, duration: 1.2 },
+      { note: 'C3', time: 4.0, duration: 1.2 }, { note: 'E3', time: 5.5, duration: 1.2 },
+      { note: 'G3', time: 7.0, duration: 2.5 }
     ]
   },
   {
@@ -80,9 +80,9 @@ const SONGS = [
     title: "Leila Fletcher: On the Way to School",
     difficulty: "Walking Tempo",
     notes: [
-      { note: 'C4', time: 1.0 }, { note: 'D4', time: 1.5 },
-      { note: 'E4', time: 2.0 }, { note: 'F4', time: 2.5 },
-      { note: 'G4', time: 3.0 }
+      { note: 'C4', time: 1.0, duration: 1.0 }, { note: 'D4', time: 2.2, duration: 1.0 },
+      { note: 'E4', time: 3.4, duration: 1.0 }, { note: 'F4', time: 4.6, duration: 1.0 },
+      { note: 'G4', time: 5.8, duration: 2.5 }
     ]
   },
   {
@@ -90,10 +90,10 @@ const SONGS = [
     title: "Leila Fletcher: My New Bike",
     difficulty: "Extended Scale",
     notes: [
-      { note: 'G3', time: 1.0 }, { note: 'A3', time: 1.5 },
-      { note: 'B3', time: 2.0 }, { note: 'C4', time: 2.5 },
-      { note: 'D4', time: 3.0 }, { note: 'E4', time: 3.5 },
-      { note: 'F4', time: 4.0 }, { note: 'G4', time: 4.5 }
+      { note: 'G3', time: 1.0, duration: 1.0 }, { note: 'A3', time: 2.2, duration: 1.0 },
+      { note: 'B3', time: 3.4, duration: 1.0 }, { note: 'C4', time: 4.6, duration: 1.0 },
+      { note: 'D4', time: 5.8, duration: 1.0 }, { note: 'E4', time: 7.0, duration: 1.0 },
+      { note: 'F4', time: 8.2, duration: 1.0 }, { note: 'G4', time: 9.4, duration: 2.5 }
     ]
   },
   {
@@ -101,9 +101,9 @@ const SONGS = [
     title: "Leila Fletcher: The Dancing Bear",
     difficulty: "Staccato & Dynamics",
     notes: [
-      { note: 'C3', time: 1.0 }, { note: 'D3', time: 1.5 },
-      { note: 'E3', time: 2.0 }, { note: 'C3', time: 2.5 },
-      { note: 'D3', time: 3.0 }, { note: 'E3', time: 3.5 }
+      { note: 'C3', time: 1.0, duration: 0.8 }, { note: 'D3', time: 2.0, duration: 0.8 },
+      { note: 'E3', time: 3.0, duration: 0.8 }, { note: 'C3', time: 4.0, duration: 0.8 },
+      { note: 'D3', time: 5.0, duration: 0.8 }, { note: 'E3', time: 6.0, duration: 1.5 }
     ]
   }
 ];
@@ -265,7 +265,7 @@ export default function MaestroMode({ pianoNotePlayed }) {
           )}
         </div>
 
-        <div className="falling-notes-area" style={{ height: '180px' }}>
+        <div className="falling-notes-area" style={{ height: '180px', position: 'relative' }}>
           {visibleNotes.map((noteItem, idx) => {
             const leftOffset = getNoteLeftPosition(noteItem.note);
             return (
@@ -275,9 +275,18 @@ export default function MaestroMode({ pianoNotePlayed }) {
                 style={{
                   top: `${noteItem.top}%`,
                   left: `${leftOffset}%`,
-                  height: '18px'
+                  height: `${(noteItem.duration || 1) * 35}px`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                  fontSize: '0.65rem',
+                  fontWeight: 'bold',
+                  borderRadius: '4px'
                 }}
-              />
+              >
+                {noteItem.note}
+              </div>
             );
           })}
         </div>
