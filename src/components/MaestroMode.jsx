@@ -36,16 +36,16 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
           let topPercentage = -50;
           
           // Notes come from top (0%) down to targets (85%)
-          if (fallTime <= 2.5 && fallTime >= -0.3) {
-            topPercentage = ((2.5 - fallTime) / 2.8) * 85;
+          if (fallTime <= 2.5 && fallTime >= -0.7) {
+            topPercentage = ((2.5 - fallTime) / 3.2) * 85;
           }
 
           return {
             ...noteItem,
             index,
             top: topPercentage,
-            expired: fallTime < -0.4,
-            hit: fallTime >= -0.4 && fallTime <= 0.4
+            expired: fallTime < -0.7,
+            hit: fallTime >= -0.7 && fallTime <= 0.7
           };
         }).filter(Boolean).filter(n => n.top >= -10 && !n.expired);
 

@@ -108,7 +108,7 @@ export default function Piano({ notePlayCallback }) {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [soundType, volume, attack, release]);
+  }, [soundType, volume, attack, release, notePlayCallback, activeNotes]);
 
   const startNote = (note, freq) => {
     if (!audioContextRef.current) return;
