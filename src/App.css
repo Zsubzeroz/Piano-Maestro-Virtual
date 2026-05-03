@@ -231,7 +231,19 @@
   border-radius: 12px;
   padding: 16px;
   border: 1px solid var(--glass-border);
+  max-height: 480px;
+  overflow-y: auto;
 }
+
+.song-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+
 
 .song-card {
   padding: 12px 16px;
