@@ -37,16 +37,73 @@ const SONGS = [
   },
   {
     id: 4,
-    title: "Twinkle Twinkle",
-    difficulty: "Intermediate",
+    title: "Leila Fletcher: Song of the Waves",
+    difficulty: "Arpeggio & Intervals",
     notes: [
-      { note: 'C3', time: 1.0 }, { note: 'C3', time: 1.5 },
-      { note: 'G3', time: 2.0 }, { note: 'G3', time: 2.5 },
-      { note: 'A3', time: 3.0 }, { note: 'A3', time: 3.5 },
-      { note: 'G3', time: 4.0 }, { note: 'F3', time: 5.0 },
-      { note: 'F3', time: 5.5 }, { note: 'E3', time: 6.0 },
-      { note: 'E3', time: 6.5 }, { note: 'D3', time: 7.0 },
-      { note: 'D3', time: 7.5 }, { note: 'C3', time: 8.0 }
+      { note: 'C4', time: 1.0 }, { note: 'E4', time: 1.5 },
+      { note: 'G4', time: 2.0 }, { note: 'E4', time: 2.5 },
+      { note: 'C4', time: 3.0 }
+    ]
+  },
+  {
+    id: 5,
+    title: "Leila Fletcher: Organ Grinder",
+    difficulty: "Bass Clef Intro",
+    notes: [
+      { note: 'C3', time: 1.0 }, { note: 'E3', time: 1.5 },
+      { note: 'G3', time: 2.0 }, { note: 'E3', time: 2.5 },
+      { note: 'C3', time: 3.0 }
+    ]
+  },
+  {
+    id: 6,
+    title: "Leila Fletcher: Song of Long Ago",
+    difficulty: "Review Melody",
+    notes: [
+      { note: 'C4', time: 1.0 }, { note: 'E4', time: 1.5 },
+      { note: 'G4', time: 2.0 }, { note: 'E4', time: 2.5 },
+      { note: 'C4', time: 3.0 }
+    ]
+  },
+  {
+    id: 7,
+    title: "Leila Fletcher: Evening Bells",
+    difficulty: "Inverted Intervals",
+    notes: [
+      { note: 'G3', time: 1.0 }, { note: 'E3', time: 1.5 },
+      { note: 'C3', time: 2.0 }, { note: 'E3', time: 2.5 },
+      { note: 'G3', time: 3.0 }
+    ]
+  },
+  {
+    id: 8,
+    title: "Leila Fletcher: On the Way to School",
+    difficulty: "Walking Tempo",
+    notes: [
+      { note: 'C4', time: 1.0 }, { note: 'D4', time: 1.5 },
+      { note: 'E4', time: 2.0 }, { note: 'F4', time: 2.5 },
+      { note: 'G4', time: 3.0 }
+    ]
+  },
+  {
+    id: 9,
+    title: "Leila Fletcher: My New Bike",
+    difficulty: "Extended Scale",
+    notes: [
+      { note: 'G3', time: 1.0 }, { note: 'A3', time: 1.5 },
+      { note: 'B3', time: 2.0 }, { note: 'C4', time: 2.5 },
+      { note: 'D4', time: 3.0 }, { note: 'E4', time: 3.5 },
+      { note: 'F4', time: 4.0 }, { note: 'G4', time: 4.5 }
+    ]
+  },
+  {
+    id: 10,
+    title: "Leila Fletcher: The Dancing Bear",
+    difficulty: "Staccato & Dynamics",
+    notes: [
+      { note: 'C3', time: 1.0 }, { note: 'D3', time: 1.5 },
+      { note: 'E3', time: 2.0 }, { note: 'C3', time: 2.5 },
+      { note: 'D3', time: 3.0 }, { note: 'E3', time: 3.5 }
     ]
   }
 ];
