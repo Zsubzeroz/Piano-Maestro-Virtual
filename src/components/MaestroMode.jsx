@@ -89,7 +89,7 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
   };
 
   return (
-    <div className="glass-panel maestro-panel" style={{ height: '200px', padding: '10px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+    <div className="glass-panel maestro-panel" style={{ height: '260px', padding: '12px', display: 'flex', flexDirection: 'column', gap: 8 }}>
       {/* Visualizer header + Controls */}
       <div className="visualizer-header" style={{ paddingBottom: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>

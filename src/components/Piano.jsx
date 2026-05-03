@@ -3,21 +3,21 @@ import { Volume2, Music, Waves, Sparkles } from 'lucide-react';
 
 // Frequencies and PC Keyboard mappings for 15 White Keys + Matching Black Keys
 const WHITE_KEYS = [
-  { note: 'C3', freq: 130.81, label: 'A', solfege: 'Dó' },
-  { note: 'D3', freq: 146.83, label: 'S', solfege: 'Ré' },
-  { note: 'E3', freq: 164.81, label: 'D', solfege: 'Mi' },
-  { note: 'F3', freq: 174.61, label: 'F', solfege: 'Fá' },
-  { note: 'G3', freq: 196.00, label: 'G', solfege: 'Sol' },
-  { note: 'A3', freq: 220.00, label: 'H', solfege: 'Lá' },
-  { note: 'B3', freq: 246.94, label: 'J', solfege: 'Si' },
+  { note: 'C3', freq: 130.81, label: 'Q', solfege: 'Dó' },
+  { note: 'D3', freq: 146.83, label: 'W', solfege: 'Ré' },
+  { note: 'E3', freq: 164.81, label: 'E', solfege: 'Mi' },
+  { note: 'F3', freq: 174.61, label: 'A', solfege: 'Fá' },
+  { note: 'G3', freq: 196.00, label: 'S', solfege: 'Sol' },
+  { note: 'A3', freq: 220.00, label: 'D', solfege: 'Lá' },
+  { note: 'B3', freq: 246.94, label: 'F', solfege: 'Si' },
   { note: 'C4', freq: 261.63, label: 'Espaço', solfege: 'Dó' },
-  { note: 'D4', freq: 293.66, label: 'L', solfege: 'Ré' },
-  { note: 'E4', freq: 329.63, label: ';', solfege: 'Mi' },
-  { note: 'F4', freq: 349.23, label: 'Z', solfege: 'Fá' },
-  { note: 'G4', freq: 392.00, label: 'X', solfege: 'Sol' },
-  { note: 'A4', freq: 440.00, label: 'C', solfege: 'Lá' },
-  { note: 'B4', freq: 493.88, label: 'V', solfege: 'Si' },
-  { note: 'C5', freq: 523.25, label: 'B', solfege: 'Dó' }
+  { note: 'D4', freq: 293.66, label: 'G', solfege: 'Ré' },
+  { note: 'E4', freq: 329.63, label: 'H', solfege: 'Mi' },
+  { note: 'F4', freq: 349.23, label: 'J', solfege: 'Fá' },
+  { note: 'G4', freq: 392.00, label: 'K', solfege: 'Sol' },
+  { note: 'A4', freq: 440.00, label: 'L', solfege: 'Lá' },
+  { note: 'B4', freq: 493.88, label: ';', solfege: 'Si' },
+  { note: 'C5', freq: 523.25, label: '\'', solfege: 'Dó' }
 ];
 
 const BLACK_KEYS = [
