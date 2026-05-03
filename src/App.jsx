@@ -50,31 +50,31 @@ export default function App() {
       </header>
 
       {/* Dynamic Module Content */}
-      <main style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden' }}>
         {activeTab === 'maestro' ? (
           <MaestroMode pianoNotePlayed={lastNotePlayed} />
         ) : (
-          <div className="glass-panel" style={{ padding: 24 }}>
-            <h2 className="text-gradient" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-              <Layers size={22} /> Synth Focus Mode
+          <div className="glass-panel" style={{ padding: 12, minHeight: '80px' }}>
+            <h2 className="text-gradient" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4, fontSize: '1.25rem' }}>
+              <Layers size={20} /> Synth Focus Mode
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: 0 }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: 0 }}>
               Use your PC keyboard or mouse/touch screen to unleash customized timbres and creative musical ideas.
             </p>
           </div>
         )}
 
         {/* Piano Component (Always accessible for continuous experimentation) */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <h3 style={{ fontSize: '1rem', color: 'var(--text-secondary)', paddingLeft: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
-            <Eye size={16} className="text-gradient" /> Visual Keyboard & Sound Settings
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <h3 style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', paddingLeft: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
+            <Eye size={14} className="text-gradient" /> Visual Keyboard & Sound Settings
           </h3>
           <Piano notePlayCallback={handleNotePlayback} />
         </div>
       </main>
 
       {/* Modern Footer section */}
-      <footer className="app-footer">
+      <footer className="app-footer" style={{ padding: '4px 0', fontSize: '0.75rem', marginTop: 'auto' }}>
         Piano Maestro Virtual • Premium Synthesis & Musical Education Platform • 2026
       </footer>
     </div>

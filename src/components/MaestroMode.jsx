@@ -205,64 +205,67 @@ export default function MaestroMode({ pianoNotePlayed }) {
   };
 
   return (
-    <div className="glass-panel maestro-panel">
+    <div className="glass-panel maestro-panel" style={{ height: '270px', padding: '12px' }}>
       {/* Sidebar containing Song Options */}
-      <div className="song-list">
-        <h3 className="text-gradient" style={{ marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
-          <BookOpen size={18} /> Tutorial Songs
+      <div className="song-list" style={{ maxHeight: '246px', overflowY: 'auto' }}>
+        <h3 className="text-gradient" style={{ marginBottom: 2, display: 'flex', alignItems: 'center', gap: 6, fontSize: '1rem' }}>
+          <BookOpen size={16} /> Tutorial Songs
         </h3>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: 16 }}>
-          Select a tune to learn and master using interactive cues.
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', marginBottom: 8 }}>
+          Select a tune to learn using interactive cues.
         </p>
 
-        {SONGS.map(song => (
-          <div
-            key={song.id}
-            className={`song-card ${selectedSong.id === song.id ? 'active' : ''}`}
-            onClick={() => {
-              if (!isPlaying) {
-                setSelectedSong(song);
-                setScore(0);
-                setHits(0);
-              }
-            }}
-          >
-            <div className="song-name">{song.title}</div>
-            <div className="song-diff">{song.difficulty}</div>
-          </div>
-        ))}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, overflowY: 'auto', flex: 1 }}>
+          {SONGS.map(song => (
+            <div
+              key={song.id}
+              className={`song-card ${selectedSong.id === song.id ? 'active' : ''}`}
+              style={{ padding: '8px 12px' }}
+              onClick={() => {
+                if (!isPlaying) {
+                  setSelectedSong(song);
+                  setScore(0);
+                  setHits(0);
+                }
+              }}
+            >
+              <div className="song-name" style={{ fontSize: '0.85rem' }}>{song.title}</div>
+              <div className="song-diff" style={{ fontSize: '0.7rem' }}>{song.difficulty}</div>
+            </div>
+          ))}
+        </div>
 
-        <div style={{ marginTop: 'auto', paddingTop: 16 }}>
+        <div style={{ marginTop: 'auto', paddingTop: 8 }}>
           {!isPlaying ? (
-            <button className="btn-primary" style={{ width: '100%' }} onClick={startSong}>
-              <Play size={18} /> Play Lesson
+            <button className="btn-primary" style={{ width: '100%', padding: '6px 12px', fontSize: '0.85rem' }} onClick={startSong}>
+              <Play size={16} /> Play Lesson
             </button>
           ) : (
-            <button className="btn-accent" style={{ width: '100%' }} onClick={stopSong}>
-              <Square size={18} /> Stop
+            <button className="btn-accent" style={{ width: '100%', padding: '6px 12px', fontSize: '0.85rem' }} onClick={stopSong}>
+              <Square size={16} /> Stop
             </button>
           )}
         </div>
       </div>
 
       {/* Main Falling Notes Visualization Area */}
-      <div className="visualizer-wrapper">
-        <div className="visualizer-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <Award size={20} className="text-gradient-accent" />
+      <div className="visualizer-wrapper" style={{ height: '100%' }}>
+        <div className="visualizer-header" style={{ paddingBottom: 6 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Award size={18} className="text-gradient-accent" />
             <div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Maestro Precision Score</div>
-              <div className="feedback-score text-gradient-accent">{score} pts</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Maestro Precision Score</div>
+              <div className="feedback-score text-gradient-accent" style={{ fontSize: '1.1rem' }}>{score} pts</div>
             </div>
           </div>
           {isPlaying && (
-            <div style={{ fontSize: '0.85rem', color: 'var(--accent-cyan)', animation: 'pulse 1.5s infinite' }}>
+            <div style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', animation: 'pulse 1.5s infinite' }}>
               • Precision listening activated
             </div>
           )}
         </div>
 
-        <div className="falling-notes-area">
+        <div className="falling-notes-area" style={{ height: '180px' }}>
           {visibleNotes.map((noteItem, idx) => {
             const leftOffset = getNoteLeftPosition(noteItem.note);
             return (
@@ -272,7 +275,7 @@ export default function MaestroMode({ pianoNotePlayed }) {
                 style={{
                   top: `${noteItem.top}%`,
                   left: `${leftOffset}%`,
-                  height: '24px'
+                  height: '18px'
                 }}
               />
             );
