@@ -9,13 +9,13 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
   const [hits, setHits] = useState(0);
   const [totalPossibleHits, setTotalPossibleHits] = useState(0);
   const [visibleNotes, setVisibleNotes] = useState([]);
+  const [hitNotes, setHitNotes] = useState(new Set());
   
   const timerRef = useRef(null);
   const songStartTimeRef = useRef(0);
   
   // Columns matching exactly 15 white keys for perfect alignment!
   const getNoteLeftPosition = (note) => {
-    // Determine note column index
     const cleanNote = note.replace('#', '');
     const colIndex = WHITE_KEYS_NOTES.indexOf(cleanNote);
     if (colIndex === -1) return 0;
@@ -29,21 +29,25 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
         const elapsed = (Date.now() - songStartTimeRef.current) / 1000;
         
         // Push notes from current song that should be falling
-        const updatedVisible = selectedSong.notes.map((noteItem) => {
+        const updatedVisible = selectedSong.notes.map((noteItem, index) => {
+          if (hitNotes.has(index)) return null;
+
           const fallTime = noteItem.time - elapsed;
           let topPercentage = -50;
           
+          // Notes come from top (0%) down to targets (85%)
           if (fallTime <= 2.5 && fallTime >= -0.3) {
-            topPercentage = ((2.5 - fallTime) / 2.8) * 100;
+            topPercentage = ((2.5 - fallTime) / 2.8) * 85;
           }
 
           return {
             ...noteItem,
+            index,
             top: topPercentage,
-            expired: fallTime < -0.5,
-            hit: fallTime >= -0.5 && fallTime <= 0.5
+            expired: fallTime < -0.4,
+            hit: fallTime >= -0.4 && fallTime <= 0.4
           };
-        }).filter(n => n.top >= -10 && !n.expired);
+        }).filter(Boolean).filter(n => n.top >= -10 && !n.expired);
 
         setVisibleNotes(updatedVisible);
 
@@ -63,7 +67,7 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPlaying, selectedSong]);
+  }, [isPlaying, selectedSong, hitNotes]);
 
   // Handle note hitting feedback
   useEffect(() => {
@@ -72,6 +76,7 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
       if (matchedNote) {
         setScore(prev => prev + 100);
         setHits(prev => prev + 1);
+        setHitNotes(prev => new Set(prev).add(matchedNote.index));
         setVisibleNotes(prev => prev.filter(n => n !== matchedNote));
       }
     }
@@ -80,12 +85,16 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
   const startSong = () => {
     setScore(0);
     setHits(0);
+    setHitNotes(new Set());
     setTotalPossibleHits(selectedSong ? selectedSong.notes.length : 0);
     setIsPlaying(true);
   };
 
   const stopSong = () => {
     setIsPlaying(false);
+    setScore(0);
+    setHits(0);
+    setHitNotes(new Set());
   };
 
   return (
@@ -120,16 +129,43 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
       </div>
 
       {/* Main Falling Notes Visualization Area */}
-      <div className="falling-notes-area" style={{ flex: 1, position: 'relative', overflow: 'hidden', background: 'rgba(0,0,0,0.1)', borderRadius: 8 }}>
-        {visibleNotes.map((noteItem, idx) => {
+      <div className="falling-notes-area" style={{ flex: 1, position: 'relative', overflow: 'hidden', background: 'rgba(0,0,0,0.1)', borderRadius: 8, borderBottom: '2px solid rgba(255,255,255,0.1)' }}>
+        {/* Guitar Hero Style Hit Receptacles / Circles */}
+        <div className="guitar-hero-targets" style={{ position: 'absolute', bottom: '15px', left: 0, right: 0, height: '24px', display: 'flex', borderTop: '2px dashed rgba(255,255,255,0.15)', pointerEvents: 'none' }}>
+          {WHITE_KEYS_NOTES.map((note) => {
+            const leftOffset = getNoteLeftPosition(note);
+            const isHitByPlayedNote = pianoNotePlayed === note;
+            return (
+              <div 
+                key={note} 
+                style={{
+                  position: 'absolute',
+                  left: `${leftOffset}%`,
+                  bottom: '-5px',
+                  width: '22px',
+                  height: '22px',
+                  border: isHitByPlayedNote ? '3px solid var(--accent-cyan)' : '2px solid rgba(255,255,255,0.25)',
+                  background: isHitByPlayedNote ? 'rgba(0, 242, 254, 0.4)' : 'transparent',
+                  borderRadius: '50%',
+                  boxShadow: isHitByPlayedNote ? '0 0 15px var(--accent-cyan)' : 'none',
+                  transition: 'all 0.05s ease'
+                }}
+              />
+            );
+          })}
+        </div>
+
+        {/* Falling Note Blocks */}
+        {visibleNotes.map((noteItem) => {
           const leftOffset = getNoteLeftPosition(noteItem.note);
           return (
             <div
-              key={idx}
+              key={noteItem.index}
               className={`falling-note ${noteItem.hit ? 'hit' : ''}`}
               style={{
                 top: `${noteItem.top}%`,
                 left: `${leftOffset}%`,
+                width: '24px',
                 height: `${(noteItem.duration || 1) * 35}px`,
                 display: 'flex',
                 alignItems: 'center',
@@ -137,7 +173,11 @@ export default function MaestroMode({ pianoNotePlayed, selectedSong }) {
                 color: '#ffffff',
                 fontSize: '0.65rem',
                 fontWeight: 'bold',
-                borderRadius: '4px'
+                borderRadius: '4px',
+                background: 'linear-gradient(135deg, var(--accent-indigo) 0%, var(--accent-cyan) 100%)',
+                boxShadow: noteItem.hit ? '0 0 12px var(--accent-cyan)' : 'none',
+                position: 'absolute',
+                zIndex: 5
               }}
             >
               {noteItem.note}
