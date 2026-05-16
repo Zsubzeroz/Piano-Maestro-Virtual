@@ -1,5 +1,7 @@
 # Piano Maestro Virtual
 
+[**Live Demo 🎹**](https://zsubzeroz.github.io/Piano-Maestro-Virtual/)
+
 A magnificent and comprehensive single-page web application that unifies **Piano Maestro Virtual** and **Virtual Synth Piano**. This interactive experience allows musicians of any skill level to synthesize sounds, customize attack and release envelopes, and learn classical melodies using interactive Synthesia-style visual cues.
 
 ## Features
