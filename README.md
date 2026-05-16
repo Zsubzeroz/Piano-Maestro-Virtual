@@ -2,7 +2,7 @@
 
 [**✨ Explore the Live Demo**](https://zsubzeroz.github.io/Piano-Maestro-Virtual/)
 
-![Actual Application Interface](./public/readme-assets/hero.png)
+![Actual Application Interface](./public/readme-assets/app_hero.png)
 
 A high-performance, immersive single-page application that blends a professional **Virtual Synthesizer** with an interactive **Maestro Learning System**. Designed with a premium glassmorphism aesthetic, it offers a zero-latency musical experience directly in your browser.
 
@@ -22,7 +22,7 @@ Master classical melodies with our Synthesia-inspired visualizer.
 - **Interactive Scoring**: Receive real-time feedback on your precision and timing.
 - **Curated Songbook**: Includes professional exercises from the *Leila Fletcher Piano Course*.
 
-![Interactive Maestro Mode in Action](./public/readme-assets/maestro.png)
+![Interactive Maestro Mode in Action](./public/readme-assets/app_maestro.png)
 
 ---
 
