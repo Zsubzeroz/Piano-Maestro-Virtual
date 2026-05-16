@@ -122,7 +122,7 @@ export default function App() {
   };
 
   return (
-    <div className="app-container" style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="app-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Header */}
       <header className="app-header">
         <div className="logo-section">
@@ -157,7 +157,7 @@ export default function App() {
       </header>
 
       {/* Main Two-Column Content Layout */}
-      <div style={{ display: 'flex', flex: 1, gap: 16, minHeight: 0, overflow: 'hidden' }}>
+      <div style={{ display: 'flex', flex: 1, gap: 16, minHeight: 0 }}>
         {/* Left column sidebar for tutorial songs */}
         <div className="glass-panel" style={{ width: '280px', height: '100%', display: 'flex', flexDirection: 'column', gap: 8, padding: 12, overflow: 'hidden' }}>
           <h3 className="text-gradient" style={{ marginBottom: 2, display: 'flex', alignItems: 'center', gap: 6, fontSize: '1rem' }}>
@@ -184,7 +184,7 @@ export default function App() {
         </div>
 
         {/* Right column with Maestro & Keyboard */}
-        <main style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden' }}>
+        <main style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}>
           {activeTab === 'maestro' ? (
             <MaestroMode pianoNotePlayed={lastNotePlayed} selectedSong={selectedSong} />
           ) : (
