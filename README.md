@@ -1,43 +1,84 @@
-# Piano Maestro Virtual
+# 🎹 Piano Maestro Virtual
 
-[**Live Demo 🎹**](https://zsubzeroz.github.io/Piano-Maestro-Virtual/)
+[**✨ Explore the Live Demo**](https://zsubzeroz.github.io/Piano-Maestro-Virtual/)
 
-A magnificent and comprehensive single-page web application that unifies **Piano Maestro Virtual** and **Virtual Synth Piano**. This interactive experience allows musicians of any skill level to synthesize sounds, customize attack and release envelopes, and learn classical melodies using interactive Synthesia-style visual cues.
+![Piano Maestro Hero](./public/readme-assets/hero.png)
 
-## Features
+A high-performance, immersive single-page application that blends a professional **Virtual Synthesizer** with an interactive **Maestro Learning System**. Designed with a premium glassmorphism aesthetic, it offers a zero-latency musical experience directly in your browser.
 
-- **Virtual Synth Keyboard**: Fully responsive 15-white-key piano supporting click, touch, and PC keyboard mappings.
-- **Rich Timbre Options**: Digital Synth, Classical Piano, Electric Organ, and Music Box.
-- **Maestro Learning Mode**: Complete falling-notes visualizer (Synthesia style) with preloaded classical tunes and interactive scoring feedback.
-- **Premium Glassmorphism Aesthetic**: Vibrant dark-mode interface designed with stunning visuals and micro-animations.
+---
 
-## PC Keyboard Controls
+## 🌟 Key Features
 
-Play notes intuitively across your PC keyboard:
-- **White Keys**: `A`, `S`, `D`, `F`, `G`, `H`, `J`, `K`, `L`, `;`, `Z`, `X`, `C`, `V`, `B`
-- **Black Keys**: `W`, `E`, `T`, `Y`, `U`, `O`, `P`, `[`, `]`, `\`
+### 🎹 Advanced Virtual Synth
+Experience rich, multi-layered sounds with our custom Web Audio API engine.
+- **Multiple Timbres**: Switch between Classical Piano, Digital Synth, Electric Organ, and Music Box.
+- **Envelope Control**: Fine-tune your sound with adjustable **Attack** and **Release** parameters.
+- **Full Keyboard Mapping**: Play naturally using your PC keyboard with intuitive mappings for both white and black keys.
 
-## Getting Started
+### 🎓 Maestro Learning Mode
+Master classical melodies with our Synthesia-inspired visualizer.
+- **Falling Note Cues**: Visual indicators guide you through complex pieces.
+- **Interactive Scoring**: Receive real-time feedback on your precision and timing.
+- **Curated Songbook**: Includes professional exercises from the *Leila Fletcher Piano Course*.
 
-To run the application locally:
+![Maestro Mode](./public/readme-assets/maestro.png)
 
-```bash
-# 1. Install required packages
-npm install
+---
 
-# 2. Run local development server
-npm run dev
-```
+## ⌨️ PC Keyboard Controls
 
-## Production Build
+Unleash your creativity with your computer keyboard:
 
-To build and compile the optimized production bundle:
+| Key Type | Keys |
+| :--- | :--- |
+| **White Keys** | `Q` `W` `E` `A` `S` `D` `F` `Space` `G` `H` `J` `K` `L` `;` `'` |
+| **Black Keys** | `W` `E` `T` `Y` `U` `O` `P` `[` `]` `\` |
 
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Zsubzeroz/Piano-Maestro-Virtual.git
+   ```
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+3. Run in development mode
+   ```bash
+   npm run dev
+   ```
+
+### Production Build
+To create an optimized production bundle:
 ```bash
 npm run build
 ```
 
-## License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](file:///home/estifer/Dev/Projetos/Piano-Maestro-Virtual/LICENSE) file for details.
+## 🛠️ Built With
+- **React 19** - UI Framework
+- **Vite 8** - Lightning-fast build tool
+- **Web Audio API** - High-fidelity sound synthesis
+- **Lucide React** - Premium iconography
+- **CSS Modules** - Advanced glassmorphism styling
 
+---
+
+## 📄 License
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+  Made with ❤️ for Musicians & Developers
+</div>
